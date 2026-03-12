@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Blood Bank Management</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #f4f9ff;
+    }
+
+    /* Top Header (20%) */
+    .header {
+        height: 20vh;
+        background: linear-gradient(90deg, #4a90e2, #357abd);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Bottom Section (80%) */
+    .container {
+        display: flex;
+        height: 80vh;
+    }
+
+    /* Left 40% Sidebar */
+    .left {
+        width: 40%;
+        background: linear-gradient(180deg, #eef5ff, #dce8ff);
+        padding: 20px;
+        border-right: 2px solid #4a90e2;
+        overflow-y: auto;
+    }
+
+    .left h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+
+    /* Query Buttons */
+    .left button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        border: none;
+        background: white;
+        color: #2c3e50;
+        cursor: pointer;
+        font-size: 13px;
+        text-align: left;
+        transition: 0.3s;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .left button:hover {
+        background: #4a90e2;
+        color: white;
+        transform: translateX(6px);
+    }
+
+    /* Right 60% Results */
+    .right {
+        width: 60%;
+        padding: 25px;
+        background-color: #ffffff;
+        overflow-y: auto;
+    }
+
+    .right h2 {
+        text-align: center;
+        color: #4a90e2;
+    }
+
+    /* Back Button */
+    .back-dashboard {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    .back-dashboard a {
+        text-decoration: none;
+        background: #4a90e2;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: 0.3s;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .back-dashboard a:hover {
+        background: #357abd;
+    }
+
+    /* Table Styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th {
+        background: #4a90e2;
+        color: white;
+        padding: 12px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f7fbff;
+    }
+
+    tr:hover {
+        background-color: #eaf3ff;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- TOP HEADER -->
+<div class="header">
+    Blood Bank Management System
+</div>
+
+<!-- BOTTOM SPLIT SECTION -->
+<div class="container">
+
+   <!-- LEFT PANEL -->
+<div class="left">
+    <h2>📊 Query Panel</h2>
+
+    <div class="query-list">
+
+        <!-- Queries 1–10 -->
+        <div class="section-title">Basic Queries</div>
+        <button onclick="window.location.href='/query/1'">1. Show All Donors</button>
+        <button onclick="window.location.href='/query/2'">2. Show All Hospitals</button>
+        <button onclick="window.location.href='/query/3'">3. Count Total Donors</button>
+        <button onclick="window.location.href='/query/4'">4. Oldest Donor (MAX)</button>
+        <button onclick="window.location.href='/query/5'">5. Total Units Donated (SUM)</button>
+        <button onclick="window.location.href='/query/6'">6. Donor & Blood Bank (JOIN)</button>
+        <button onclick="window.location.href='/query/7'">7. Donors by Blood Group</button>
+        <button onclick="window.location.href='/query/8'">8. Donors Older Than Average</button>
+        <button onclick="window.location.href='/query/9'">9. Youngest Donor (MIN)</button>
+        <button onclick="window.location.href='/query/10'">10. Average Donor Age</button>
+
+        <!-- Queries 11–20 -->
+        <div class="section-title">Filtering & Sorting</div>
+        <button onclick="window.location.href='/query/11'">11. Donors from Hyderabad</button>
+        <button onclick="window.location.href='/query/12'">12. Age Between 20–30</button>
+        <button onclick="window.location.href='/query/13'">13. Name Starts With R</button>
+        <button onclick="window.location.href='/query/14'">14. Distinct Blood Groups</button>
+        <button onclick="window.location.href='/query/15'">15. Total Units Per Donor</button>
+        <button onclick="window.location.href='/query/16'">16. Donors > 2 Units</button>
+        <button onclick="window.location.href='/query/17'">17. Acceptors with Hospital</button>
+        <button onclick="window.location.href='/query/18'">18. Top Blood Bank</button>
+        <button onclick="window.location.href='/query/19'">19. LEFT JOIN Donor-Donation</button>
+        <button onclick="window.location.href='/query/20'">20. Order Donors by Age DESC</button>
+
+        <!-- Queries 21–30 -->
+        <div class="section-title">Advanced Queries</div>
+        <button onclick="window.location.href='/query/21'">21. Donors Who Donated</button>
+        <button onclick="window.location.href='/query/22'">22. Donors Who Never Donated</button>
+        <button onclick="window.location.href='/query/23'">23. Oldest Donor Details</button>
+        <button onclick="window.location.href='/query/24'">24. Age Category (CASE)</button>
+        <button onclick="window.location.href='/query/25'">25. Donors With >2 Units</button>
+        <button onclick="window.location.href='/query/26'">26. Union Donors & Acceptors</button>
+        <button onclick="window.location.href='/query/27'">27. Above Average Donation</button>
+        <button onclick="window.location.href='/query/28'">28. Latest Donations</button>
+        <button onclick="window.location.href='/query/29'">29. Total Donations Count</button>
+        <button onclick="window.location.href='/query/30'">30. Blood Group HAVING</button>
+
+        <!-- Queries 31–50 -->
+        <div class="section-title">Reports & Statistics</div>
+        <button onclick="window.location.href='/query/31'">31. Hospitals Ordered</button>
+        <button onclick="window.location.href='/query/32'">32. Blood Banks Ordered</button>
+        <button onclick="window.location.href='/query/33'">33. Total Hospitals</button>
+        <button onclick="window.location.href='/query/34'">34. Total Blood Banks</button>
+        <button onclick="window.location.href='/query/35'">35. Maximum Units Donated</button>
+        <button onclick="window.location.href='/query/36'">36. Minimum Units Donated</button>
+        <button onclick="window.location.href='/query/37'">37. Average Units</button>
+        <button onclick="window.location.href='/query/38'">38. Donors Ordered By Name</button>
+        <button onclick="window.location.href='/query/39'">39. Acceptors Ordered</button>
+        <button onclick="window.location.href='/query/40'">40. All Donations</button>
+        <button onclick="window.location.href='/query/41'">41. Donors Age > 25</button>
+        <button onclick="window.location.href='/query/42'">42. Donors Age < 30</button>
+        <button onclick="window.location.href='/query/43'">43. O+ Donors</button>
+        <button onclick="window.location.href='/query/44'">44. A+ Donors</button>
+        <button onclick="window.location.href='/query/45'">45. A+ Acceptors</button>
+        <button onclick="window.location.href='/query/46'">46. Donation Count Per Donor</button>
+        <button onclick="window.location.href='/query/47'">47. Units Per Blood Bank</button>
+        <button onclick="window.location.href='/query/48'">48. Acceptors Per Hospital</button>
+        <button onclick="window.location.href='/query/49'">49. Donations ≥ 2 Units</button>
+        <button onclick="window.location.href='/query/50'">50. Donors From Vijayawada</button>
+
+    </div>
+</div>
+
+    <!-- RIGHT PANEL -->
+  <div class="right">
+    <h2>Results</h2>
+
+    {% if data is defined %}
+        {% if data|length > 0 %}
+            <table>
+                <tr>
+                    {% for column in columns %}
+                        <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+
+                {% for row in data %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No rows returned.</p>
+        {% endif %}
+    {% else %}
+        <p>No data to display.</p>
+    {% endif %}
+
+    <!-- BACK TO DASHBOARD BUTTON -->
+    <div class="back-dashboard">
+        <a href="/dashboard">⬅ Back to Dashboard</a>
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>
